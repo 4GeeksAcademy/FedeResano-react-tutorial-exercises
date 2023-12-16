@@ -2,14 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 
-const Jumbotron = props => {
+const Jumbotron = (props) => {
 	// Here you have to return expected html using the properties being passed to the component
+	return (
+		<div className="jumbotron m-5">
+			<h1 className="display-4">{props.title}</h1>
+			<p className="lead">{props.description}</p>
+			<a className="btn btn-primary btn-lg" href={props.buttonURL} role="button">
+				{props.buttonLabel}
+			</a>
+		</div>
+	);
 };
 
 Jumbotron.propTypes = {
 	// PropTypes here
 	title: PropTypes.string,
-
+	description: PropTypes.string,
+	buttonLabel: PropTypes.string,
+	buttonUrl: PropTypes.string,
 };
 
 ReactDOM.render(
@@ -19,6 +30,5 @@ ReactDOM.render(
 		buttonLabel="Go to the official website"
 		buttonURL="https://reactjs.org/"
 	/>,
-
 	document.querySelector("#myDiv")
 );
